@@ -17,13 +17,16 @@ namespace PaintBallShootingGame
 
         public bool IsEmpty() { return ballsLoaded == 0; }
 
-        public int GetBalls() { return balls; }
-
-        public void SetBalls(int numberOrBalls)
+        public int Balls
         {
-            if (numberOrBalls > 0)
-                balls = numberOrBalls;
-            Reload();
+            get { return balls; }
+
+            set 
+            {
+                if (value > 0)
+                    balls = value;
+                Reload();
+            }
         }
         public void Reload()
         {
