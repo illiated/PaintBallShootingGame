@@ -9,6 +9,6 @@ while (true)
     char key = Console.ReadKey(true).KeyChar;
     if (key == ' ') Console.WriteLine($"Shooting returned {gun.Shoot()}");
     else if (key == 'r') gun.Reload();
-    else if (key == '+') gun.Balls += PaintBallGun.MAGAZINE_SIZE;
+    else if (key == '+') gun.Balls += gun.MagazineSize;
     else if (key == 'q') return;
 }
