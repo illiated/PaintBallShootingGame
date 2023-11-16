@@ -1,6 +1,13 @@
 ﻿using PaintBallShootingGame;
 
- PaintBallGun gun = new PaintBallGun();
+int numberOfBalls = ReadInt(20, "Number of balls");
+int magazineSize = ReadInt(16, "Magazine size");
+
+Console.WriteLine($"Loaded [false]: ");
+bool.TryParse(Console.ReadLine(), out bool isLoaded);
+
+PaintBallGun gun = new PaintBallGun(numberOfBalls, magazineSize, isLoaded);
+
 while (true)
 {
     Console.WriteLine($"{gun.Balls} balls, {gun.BallsLoaded} loaded");
@@ -11,4 +18,20 @@ while (true)
     else if (key == 'r') gun.Reload();
     else if (key == '+') gun.Balls += gun.MagazineSize;
     else if (key == 'q') return;
+}
+
+int ReadInt(int userValue, string prompt)
+{
+    Console.WriteLine(prompt + " [" + userValue + "]: ");
+    string line = Console.ReadLine();
+    if (int.TryParse(line, out int value))
+    {
+        Console.WriteLine(" using value " + value);
+        return value;
+    }
+    else
+    {
+        Console.WriteLine(" using default value " + userValue);
+        return userValue;
+    }
 }

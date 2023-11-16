@@ -8,6 +8,13 @@ namespace PaintBallShootingGame
 {
     class PaintBallGun
     {
+        public PaintBallGun(int balls, int magazineSize, bool loaded) //parameter 'balls' is same name as the class variable 'balls'. 'this' keyword wiil be needed to differentiate.
+        {
+            this.balls = balls;
+            MagazineSize = magazineSize;
+            if (!loaded) Reload();
+        }
+
         public int MagazineSize { get; set; }
 
         private int balls = 0;
